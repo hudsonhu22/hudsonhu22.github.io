@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Lab Shelf Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Typewriter styles */
+    #typewriter {
+  font-family: monospace;
+  font-size: 2.5rem;
+  white-space: nowrap;
+  margin: 1rem auto;       /* auto left/right margins */
+  text-align: center;      /* center the inline text */
+  display: block;          /* ensure margin auto is honored */
+}
+    #typewriter::after {
+      content: '|';
+      animation: blink 0.7s steps(1) infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    /* Layout container */
+    .layout {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 1rem;
+    }
+    @media (min-width: 768px) {
+      .layout {
+        flex-direction: row-reverse;
+        align-items: flex-start;
+      }
+      .text-block,
+      .shelf {
+        flex: 1;
+      }
+    }
+
+    /* Text blocks */
+    .aboutSection {
+      font-size: 20px;
+      margin-bottom: 1rem;
+    }
+
+    /* Shelf & potions */
+    .shelf {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 2rem;
+      background: url("Images/shelf.png") no-repeat center bottom;
+      background-size: contain;
+    }
+    .shelf-row {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .potion {
+      width: 80px;
+      transform-origin: center bottom;
+      transition: transform 0.3s;
+    }
+    .potion:hover {
+      transform: translateY(-10%) rotateY(-30deg) scale(1.15);
+    }
+    .potion .cover {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* Overlay menu */
+    .overlay {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      background-color: rgba(0,0,0,0.9);
+      overflow-x: hidden;
+      transition: 0.5s;
+    }
+    .overlay-content {
+      position: relative;
+      top: 25%;
+      width: 100%;
+      text-align: center;
+      margin-top: 30px;
+    }
+    .overlay a {
+      padding: 8px;
+      text-decoration: none;
+      font-size: 36px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+    .overlay a:hover, .overlay a:focus {
+      color: #f1f1f1;
+    }
+    .overlay .closebtn {
+      position: absolute;
+      top: 20px;
+      right: 45px;
+      font-size: 60px;
+      color: #fff;
+    }
+    .divider {
+  border: none;
+  border-top: 2px solid #333;
+  width: 50rem;
+  margin: 1.5rem auto;     /* auto left/right margins */
+}
+
+    /* Logo and open button */
+    .logo {
+    position: fixed;
+      top: 1rem;
+      left: 1rem;
+      padding: 8px;
+      font-size: 36px;
+      color: black;
+      text-decoration: none;
+      display: block;
+    }
+    .openbtn {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #333;
+      z-index: 1001;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Logo -->
+  <a href="index.html" class="logo">H / H</a>
+
+  <!-- Overlay navigation -->
+  <div id="myNav" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="overlay-content">
+      <a href="#index.html">Home</a>
+      <a href="#projects.html">Projects</a>
+      <a href="#books.html">Books</a>
+      <a href="#resume.html">Resume</a>
+      <a href="https://github.com/hudsonhu22">Github</a>
+      <a href="#contact.html">Contact</a>
+    </div>
+  </div>
+
+  <!-- Open menu button -->
+  <span class="openbtn" onclick="openNav()">&#9776;</span>
+
+  <!-- Typewriter header -->
+  <h1 id="typewriter"></h1>
+  <hr class="divider">
+
+  <!-- Main layout -->
+  <div class="layout">
+    <div class="text-block">
+      <p class="aboutSection">
+        I'm a fourth year undergraduate student at the University of Toronto studying a double major in Cell and Molecular Biology and Quantitative Biology.
+      </p>
+      <p class="aboutSection">
+        Currently, I am a Research Trainee at the Krembil Centre for Neuroinformatics. My work is focused around computational genomics and epigenetic alterations in neuropsychiatric diseases.
+      </p>
+      <p class="aboutSection">
+        I love to learn, and my curiosity has driven me to self-teach many computer science & bioinformatics skills beyond my coursework.
+      </p>
+    </div>
+
+    <div class="shelf">
+      <div class="shelf-row">
+        <a href="#" class="potion"><img class="cover" src="Images/potion2-purple.png" alt="Potion"/></a>
+        <a href="#" class="potion"><img class="cover" src="Images/potion2-yellow.png" alt="Potion"/></a>
+        <a href="#" class="potion"><img class="cover" src="Images/potion2-pink.png" alt="Potion"/></a>
+      </div>
+      <div class="shelf-row">
+        <a href="#" class="potion"><img class="cover" src="Images/potion-red.png" alt="Potion"/></a>
+        <a href="#" class="potion"><img class="cover" src="Images/potion-yellow.png" alt="Potion"/></a>
+        <a href="#" class="potion"><img class="cover" src="Images/potion-yellow.png" alt="Potion"/></a>
+      </div>
+      <div class="shelf-row">
+        <a href="#" class="potion"><img class="cover" src="Images/potion-red.png" alt="Potion"/></a>
+        <a href="#" class="potion"><img class="cover" src="Images/potion-yellow.png" alt="Potion"/></a>
+        <a href="#" class="potion"><img class="cover" src="Images/potion-orange.png" alt="Potion"/></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Typewriter JS (runs after #typewriter exists) -->
+  <script>
+    const texts = [
+      "> echo Welcome",
+      "Welcome...",
+      ">whoami",
+      "Hugo Hudson's Webpage",
+      "Click a potion to explore"
+    ];
+    const typingSpeed   = 100;
+    const deletingSpeed = 50;
+    const pauseBetween  = 1500;
+
+    let el        = document.getElementById('typewriter'),
+        textIndex = 0,
+        charIndex = 0,
+        typing    = true;
+
+    function tick() {
+      const current = texts[textIndex];
+      if (typing) {
+        el.textContent = current.slice(0, ++charIndex);
+        if (charIndex === current.length) {
+          typing = false;
+          return setTimeout(tick, pauseBetween);
+        }
+      } else {
+        el.textContent = current.slice(0, --charIndex);
+        if (charIndex === 0) {
+          typing    = true;
+          textIndex = (textIndex + 1) % texts.length;
+        }
+      }
+      setTimeout(tick, typing ? typingSpeed : deletingSpeed);
+    }
+    tick();
+
+    // Overlay open/close
+    function openNav() { document.getElementById("myNav").style.width = "100%"; }
+    function closeNav() { document.getElementById("myNav").style.width = "0"; }
+  </script>
+</body>
+</html>
